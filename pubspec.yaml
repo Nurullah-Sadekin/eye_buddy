@@ -59,6 +59,7 @@ flutter:
     - assets/
     - assets/svg/
     - assets/images/
+    - assets/images/level_logo/
     - assets/icon/
     - assets/excercises/
     - fonts/
