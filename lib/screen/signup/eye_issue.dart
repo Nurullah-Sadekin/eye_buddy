@@ -1,8 +1,11 @@
 import 'dart:developer';
 
+import 'package:eye_buddy/screen/homepage/profile.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class EyeIssue extends StatefulWidget {
   @override
@@ -18,8 +21,18 @@ class Issue {
 }
 
 class _EyeIssueState extends State<EyeIssue> {
+  List eyeIssueSelected = [];
+  Future sendEyeIssues() async {
+    await FirebaseFirestore.instance
+        .collection("UserInfo")
+        .doc(FirebaseAuth.instance.currentUser.uid)
+        .update({'userEyeIssues': eyeIssueSelected}).then((value) =>
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Profile())));
+  }
+
   bool selectingmode = true;
-  List<Issue> issue = <Issue>[
+  List<Issue> paints = <Issue>[
     Issue(1, 'None'),
     Issue(2, 'Longsightedness'),
     Issue(3, 'Shortsightedness'),
@@ -65,18 +78,31 @@ class _EyeIssueState extends State<EyeIssue> {
                     ),
               ),
               child: ListView(
-                children: List.generate(issue.length, (index) {
+                children: List.generate(paints.length, (index) {
                   return ListTile(
                     onTap: () {
                       setState(() {
                         selectingmode = true;
                         if (selectingmode) {
-                          issue[index].selected = !issue[index].selected;
-                          log(issue[index].selected.toString());
+                          paints[index].selected = !paints[index].selected;
+
+                          print(paints[index].id);
                         }
+
+                        if (eyeIssueSelected.contains(paints[index].title)) {
+                          print("exist, remove");
+                          eyeIssueSelected.remove(paints[index].title);
+                        } else {
+                          print("not existant, add");
+                          eyeIssueSelected.add(paints[index].title);
+                        }
+                        eyeIssueSelected.forEach((element) {
+                          print(element);
+                        });
+                        //eyeIssueSelected.clear();
                       });
                     },
-                    selected: issue[index].selected,
+                    selected: paints[index].selected,
                     title: Container(
                       width: 48,
                       height: 48,
@@ -86,12 +112,12 @@ class _EyeIssueState extends State<EyeIssue> {
                                 5.0) //                 <--- border radius here
                             ),
                         color: (selectingmode)
-                            ? ((issue[index].selected)
+                            ? ((paints[index].selected)
                                 ? colorFromHex('#FEC62D')
                                 : colorFromHex('#FFFFFF'))
                             : null,
                       ),
-                      child: Text(issue[index].title,
+                      child: Text(paints[index].title,
                           style: TextStyle(
                             color: colorFromHex('#181D3D'),
                           )),
@@ -110,7 +136,9 @@ class _EyeIssueState extends State<EyeIssue> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            onPressed: () {},
+            onPressed: () {
+              sendEyeIssues();
+            },
             child: Text(
               'Done',
               style: TextStyle(

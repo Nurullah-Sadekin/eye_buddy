@@ -20,7 +20,7 @@ class _AstigmatismLeftState extends State<AstigmatismLeft> {
   PageController controller;
   void _incrementCounter() {
     setState(() {
-      counter++;
+      counter = counter + 5;
     });
   }
 

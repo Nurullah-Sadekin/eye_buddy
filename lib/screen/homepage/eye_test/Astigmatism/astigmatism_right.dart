@@ -19,10 +19,10 @@ class _AstigmatismRightState extends State<AstigmatismRight> {
 
   _AstigmatismRightState({this.id, this.counter});
 
-  int counter2;
+  int counter2 = 0;
   void _incrementCounter() {
     setState(() {
-      counter2++;
+      counter2 = counter2 + 5;
     });
   }
 
@@ -88,6 +88,7 @@ class _AstigmatismRightState extends State<AstigmatismRight> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     onPressed: () {
+                      _incrementCounter();
                       Navigator.push(
                           context,
                           MaterialPageRoute(

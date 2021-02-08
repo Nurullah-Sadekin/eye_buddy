@@ -1,11 +1,11 @@
 import 'dart:ui';
-import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:eye_buddy/screen/bar_chart_page.dart';
+
 import 'package:eye_buddy/screen/homepage/left_eye_test_bar.dart';
 import 'package:eye_buddy/screen/homepage/right_eye_text_bar.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
+import 'package:eye_buddy/screen/bar_chart_page.dart';
 
 class Stats extends StatefulWidget {
   @override
@@ -29,16 +29,22 @@ class _StatsState extends State<Stats> {
       ),
       body: ListView(
         children: [
-          BarChartPage(),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              LeftEyeTestBar(),
-              RightEyeTestBar(),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Container(height: 277, child: BarChartPage()),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(top: 20, left: 25, right: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LeftEyeTestBar(),
+                RightEyeTestBar(),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 25, right: 25),
             child: Card(
               elevation: 1,
               shape: RoundedRectangleBorder(
@@ -122,7 +128,7 @@ class _StatsState extends State<Stats> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.only(top: 20, left: 25, right: 25),
             child: Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
@@ -190,7 +196,7 @@ class _StatsState extends State<Stats> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(top: 20, left: 25, right: 25),
             child: Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
@@ -298,7 +304,7 @@ class _StatsState extends State<Stats> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.only(top: 20, left: 25, right: 25),
             child: MaterialButton(
               height: hp * 0.07,
               minWidth: hw * 0.8,

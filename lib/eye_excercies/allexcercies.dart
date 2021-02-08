@@ -1,16 +1,16 @@
-import 'package:eye_buddy/eye_excercies/acco_spasm.dart';
-import 'package:eye_buddy/eye_excercies/all_day.dart';
-import 'package:eye_buddy/eye_excercies/custom_excercies.dart';
-import 'package:eye_buddy/eye_excercies/dry_eyes.dart';
-import 'package:eye_buddy/eye_excercies/dry_eyes/closed_eye_move.dart';
-import 'package:eye_buddy/eye_excercies/eye_muscles.dart';
-import 'package:eye_buddy/eye_excercies/lazy_eye.dart';
-import 'package:eye_buddy/eye_excercies/relaxation.dart';
-import 'package:eye_buddy/eye_excercies/simulation.dart';
-import 'package:eye_buddy/model/day_night_model.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:eye_buddy/eye_excercies/acco_spasm.dart';
+import 'package:eye_buddy/eye_excercies/all_day.dart';
+import 'package:eye_buddy/eye_excercies/relaxation.dart';
+import 'package:eye_buddy/eye_excercies/eye_muscles.dart';
+import 'dry_eyes.dart';
+import 'package:eye_buddy/eye_excercies/lazy_eye.dart';
+import 'package:eye_buddy/eye_excercies/simulation.dart';
+import 'package:eye_buddy/model/day_night_model.dart';
+import 'package:eye_buddy/eye_excercies/dry_eyes/closed_eye_move.dart';
+import 'package:eye_buddy/eye_excercies/custom_excercies.dart';
 
 class AllExcercies extends StatefulWidget {
   @override
@@ -20,11 +20,12 @@ class AllExcercies extends StatefulWidget {
 class _AllExcerciesState extends State<AllExcercies> {
   @override
   int id;
+
   int count = 1;
+
   List<bool> isSelected = [true, false];
+
   Widget build(BuildContext context) {
-    var hp = MediaQuery.of(context).size.height;
-    var hw = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -110,16 +111,6 @@ class _AllExcerciesState extends State<AllExcercies> {
                             ),
                           ),
                         ),
-                        // Padding(
-                        //   padding: const EdgeInsets.symmetric(horizontal: 12),
-                        //   child:
-                        //       Text('For Rent', style: TextStyle(fontSize: 18)),
-                        // ),
-                        // Padding(
-                        //   padding: const EdgeInsets.symmetric(horizontal: 12),
-                        //   child:
-                        //       Text('For Sale', style: TextStyle(fontSize: 18)),
-                        // ),
                       ],
                       onPressed: (int newIndex) {
                         setState(() {
@@ -180,144 +171,6 @@ class _AllExcerciesState extends State<AllExcercies> {
                     },
                   ),
                 ),
-                // SingleChildScrollView(
-                //   scrollDirection: Axis.horizontal,
-                //   child: Row(
-                //     children: <Widget>[
-                //       Padding(
-                //         padding: EdgeInsets.all(20),
-                //         child: Row(
-                //           children: <Widget>[
-                //             Container(
-                //                 height: 100,
-                //                 width: 120,
-                //                 decoration: BoxDecoration(
-                //                   color: Colors.white,
-                //                   borderRadius: BorderRadius.circular(10),
-                //                   boxShadow: [
-                //                     BoxShadow(
-                //                       color: Color(0x181D3D).withOpacity(0.1),
-                //                       spreadRadius: 2,
-                //                       blurRadius: 40,
-                //                       offset: Offset(0, 3),
-                //                     ),
-                //                   ],
-                //                 ),
-                //                 child: Column(
-                //                   mainAxisAlignment: MainAxisAlignment.end,
-                //                   children: <Widget>[
-                //                     Container(
-                //                       child: SvgPicture.asset(
-                //                         'assets/svg/focus.svg',
-                //                         height: 37.31,
-                //                         width: 37.31,
-                //                       ),
-                //                     ),
-                //                     SizedBox(
-                //                       height: 14,
-                //                     ),
-                //                     Text(
-                //                       "Focus Shift",
-                //                       style: TextStyle(
-                //                           fontFamily: 'TT Commons',
-                //                           fontSize: 14,
-                //                           color: Colors.black),
-                //                     ),
-                //                     Container(
-                //                       height: 20,
-                //                     )
-                //                   ],
-                //                 )),
-                //             SizedBox(
-                //               width: 10,
-                //             ),
-                //             Container(
-                //                 height: 100,
-                //                 width: 120,
-                //                 decoration: BoxDecoration(
-                //                     color: Colors.white,
-                //                     borderRadius: BorderRadius.circular(10),
-                //                     boxShadow: [
-                //                       BoxShadow(
-                //                         color: Color(0x181D3D).withOpacity(0.1),
-                //                         spreadRadius: 2,
-                //                         blurRadius: 40,
-                //                         offset: Offset(0, 3),
-                //                       ),
-                //                     ]),
-                //                 child: Column(
-                //                   mainAxisAlignment: MainAxisAlignment.end,
-                //                   children: <Widget>[
-                //                     Container(
-                //                       height: 26.8,
-                //                       width: 73,
-                //                       child: SvgPicture.asset(
-                //                         'assets/svg/Blurry Gabor.svg',
-                //                       ),
-                //                     ),
-                //                     Container(
-                //                       height: 21,
-                //                     ),
-                //                     Text(
-                //                       "Blurry Gabor",
-                //                       style: TextStyle(
-                //                           fontFamily: 'TT Commons',
-                //                           fontSize: 14,
-                //                           color: Colors.black),
-                //                     ),
-                //                     Container(
-                //                       height: 20,
-                //                     )
-                //                   ],
-                //                 )),
-                //             SizedBox(
-                //               width: 10,
-                //             ),
-                //             Container(
-                //                 height: 100,
-                //                 width: 120,
-                //                 decoration: BoxDecoration(
-                //                     color: Colors.white,
-                //                     borderRadius: BorderRadius.circular(10),
-                //                     boxShadow: [
-                //                       BoxShadow(
-                //                         color: Color(0x181D3D).withOpacity(0.1),
-                //                         spreadRadius: 2,
-                //                         blurRadius: 40,
-                //                         offset: Offset(0, 3),
-                //                       ),
-                //                     ]),
-                //                 child: Column(
-                //                   mainAxisAlignment: MainAxisAlignment.end,
-                //                   children: <Widget>[
-                //                     Container(
-                //                       height: 25.61,
-                //                       width: 73.61,
-                //                       child: SvgPicture.asset(
-                //                         'assets/svg/Yeallow Sunglass.svg',
-                //                       ),
-                //                     ),
-                //                     Container(
-                //                       height: 21,
-                //                     ),
-                //                     Text(
-                //                       "Gabor Blink",
-                //                       style: TextStyle(
-                //                           fontFamily: 'TT Commons',
-                //                           fontSize: 14,
-                //                           color: Colors.black),
-                //                     ),
-                //                     Container(
-                //                       height: 20,
-                //                     )
-                //                   ],
-                //                 )),
-                //           ],
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
                 Container(
                   height: 45,
                 ),
@@ -349,8 +202,10 @@ class _AllExcerciesState extends State<AllExcercies> {
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
               children: <Widget>[
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => DryEyes())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DryEyes(exName: "DryEyes"))),
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Container(
@@ -397,8 +252,11 @@ class _AllExcerciesState extends State<AllExcercies> {
                   ),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AccoSpasm())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              AccoSpasm(exName: "AccoSpasm"))),
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Container(
@@ -445,8 +303,11 @@ class _AllExcerciesState extends State<AllExcercies> {
                   ),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Relaxation())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Relaxation(exName: "Relaxation"))),
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Container(
@@ -493,8 +354,11 @@ class _AllExcerciesState extends State<AllExcercies> {
                   ),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => EyeMuscles())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              EyeMuscles(exName: "EyeMuscles"))),
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Container(
@@ -541,8 +405,10 @@ class _AllExcerciesState extends State<AllExcercies> {
                   ),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AllDay())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AllDay(exName: "AllDay"))),
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Container(
@@ -589,8 +455,11 @@ class _AllExcerciesState extends State<AllExcercies> {
                   ),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SimulationEye())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              SimulationEye(exName: "Simulation"))),
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Container(
@@ -635,8 +504,10 @@ class _AllExcerciesState extends State<AllExcercies> {
                   ),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LazyEye())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LazyEye(exName: "LazyEye"))),
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Container(
@@ -684,7 +555,7 @@ class _AllExcerciesState extends State<AllExcercies> {
                 ),
               ],
             ),
-          ),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(

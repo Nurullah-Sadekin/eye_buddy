@@ -3,6 +3,8 @@ import 'package:eye_buddy/eye_excercies/dry_eyes/closed_eye_move.dart';
 import 'package:eye_buddy/eye_excercies/excercies_class/eye_excercies_item.dart';
 
 class EyeMuscles extends StatelessWidget {
+  String exName;
+  EyeMuscles({this.exName});
   int id;
   @override
   Widget build(BuildContext context) {
@@ -42,112 +44,160 @@ class EyeMuscles extends StatelessWidget {
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 1))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 1,
+                                exName: exName,
+                              ))),
                   child: splitimages(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 3))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 3,
+                                exName: exName,
+                              ))),
                   child: focusshift(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 23))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 23,
+                                exName: exName,
+                              ))),
                   child: diagonalMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 24))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 24,
+                                exName: exName,
+                              ))),
                   child: ellipsisMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 19))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 19,
+                                exName: exName,
+                              ))),
                   child: jumpingMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 20))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 20,
+                                exName: exName,
+                              ))),
                   child: bouncingBall(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 18))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 18,
+                                exName: exName,
+                              ))),
                   child: crossMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 16))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 16,
+                                exName: exName,
+                              ))),
                   child: waveMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 26))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 26,
+                                exName: exName,
+                              ))),
                   child: spiralMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 25))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 25,
+                                exName: exName,
+                              ))),
                   child: flowerMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 27))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 27,
+                                exName: exName,
+                              ))),
                   child: springMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 28))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 28,
+                                exName: exName,
+                              ))),
                   child: trajectoryMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 30))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 30,
+                                exName: exName,
+                              ))),
                   child: infinityMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 29))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 29,
+                                exName: exName,
+                              ))),
                   child: butterflyMove(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 38))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 38,
+                                exName: exName,
+                              ))),
                   child: circleFocus(hp, hw),
                 ),
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ClosedEyeMove(id: 32))),
+                          builder: (context) => ClosedEyeMove(
+                                id: 32,
+                                exName: exName,
+                              ))),
                   child: ractangularMove(hp, hw),
                 ),
               ],

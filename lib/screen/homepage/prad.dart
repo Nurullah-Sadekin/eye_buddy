@@ -1,9 +1,9 @@
-import 'package:eye_buddy/screen/Buddy/buddy.dart';
+import 'package:eye_buddy/screen/prad_story/prad_story.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:eye_buddy/resultpage/good.dart';
 import 'package:flutter_svg/svg.dart';
-import '../prad_story/prad_story.dart';
+import 'package:eye_buddy/screen/buddy/buddy.dart';
 
 class Prad extends StatefulWidget {
   @override

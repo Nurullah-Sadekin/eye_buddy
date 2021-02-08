@@ -55,7 +55,9 @@ class _GreatWorkState extends State<GreatWork> {
                       ),
                       onPressed: () {
                         // _incrementCounter();
-                        Navigator.push(context,
+                        Navigator.push(
+                            context,
+                            // MaterialPageRoute(builder: (context) => Stats()));
                             MaterialPageRoute(builder: (context) => Stats()));
                         // print(counter);
                       },

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../homepage/home.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
-import 'package:flutter_gifimage/flutter_gifimage.dart';
 
 class AnimationScreen extends StatelessWidget {
   @override
@@ -23,7 +22,7 @@ class AnimationScreen extends StatelessWidget {
               ),
             ),
             Container(
-              width: hw,
+              height: hp * 0.5,
               color: Colors.white70,
               padding: EdgeInsets.only(top: hp * 0.05, bottom: hp * 0.05),
               child: Center(
@@ -42,6 +41,10 @@ class AnimationScreen extends StatelessWidget {
                       color: colorFromHex('#181D3D')),
                 ),
               ),
+            ),
+            Container(
+              height: hp * 0.1,
+              width: hw * 0.8,
             ),
           ],
         ),

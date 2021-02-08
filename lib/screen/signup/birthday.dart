@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
 import 'package:eye_buddy/screen/signup/eye_issue.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
 class Birthday extends StatefulWidget {
@@ -10,6 +12,7 @@ class Birthday extends StatefulWidget {
 }
 
 class _BirthdayState extends State<Birthday> {
+  var userBirthday;
   @override
   Widget build(BuildContext context) {
     var hp = MediaQuery.of(context).size.height;
@@ -38,6 +41,9 @@ class _BirthdayState extends State<Birthday> {
               onDateTimeChanged: (dateTime) {
                 setState(() {
                   _dateTime = dateTime;
+                  userBirthday = dateTime;
+                  //userBirthday = dateTime.year+"-"+dateTime.month+"-"+dateTime.day;
+                  print(userBirthday);
                 });
               },
             ),
@@ -53,8 +59,13 @@ class _BirthdayState extends State<Birthday> {
             borderRadius: BorderRadius.circular(10),
           ),
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => EyeIssue()));
+            FirebaseFirestore.instance
+                .collection("UserInfo")
+                .doc(FirebaseAuth.instance.currentUser.uid)
+                .update({'userBirthday': userBirthday}).then((value) {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => EyeIssue()));
+            });
           },
           child: Text(
             'Done',

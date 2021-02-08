@@ -1,13 +1,14 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:eye_buddy/screen/homepage/profile.dart';
-
 import 'package:eye_buddy/screen/signin/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:eye_buddy/screen/homepage/profile.dart';
 import 'package:eye_buddy/screen/homepage/share.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'discover.dart';
 import 'prad.dart';
+import 'profile.dart';
 import 'train.dart';
 
 class Home extends StatefulWidget {
@@ -16,19 +17,33 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<Widget> screens = [];
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAuth.instance.authStateChanges().listen((User user) {
+      if (user == null) {
+        // Navigator.of(context).push(MaterialPageRoute(
+        //     builder: (context) => Auth()));
+        setState(() {
+          this.screens = [Discover(), Train(), Prad(), Stats(), LoginScreen()];
+        });
+
+        print('User is currently signed out!');
+      } else {
+        setState(() {
+          this.screens = [Discover(), Train(), Prad(), Stats(), Profile()];
+        });
+
+        print('User is signed in!');
+      }
+    });
+  }
+
   // Properties & Variables needed
-  bool state = false;
 
   int selectedIndex = 0;
   int currentTab = 0; // to keep track of active tab index
-  final List<Widget> screens = [
-    Discover(),
-    Train(),
-    Prad(),
-    Stats(),
-    Profile()
-    // LoginScreen(),
-  ];
 
   // to store nested tabs
 // Our first view in viewport

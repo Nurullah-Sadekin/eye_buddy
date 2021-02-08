@@ -5,21 +5,28 @@ import 'package:eye_buddy/model/eye_excercies_model.dart';
 import 'package:eye_buddy/resultpage/good.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:eye_buddy/util/colorconfig.dart';
 
 class ClosedEyeMove extends StatefulWidget {
   int id;
-  ClosedEyeMove({this.id});
+  String exName;
+  ClosedEyeMove({this.id, this.exName});
   @override
-  _ClosedEyeMoveState createState() => _ClosedEyeMoveState(id: id);
+  _ClosedEyeMoveState createState() =>
+      _ClosedEyeMoveState(id: id, exName: exName);
 }
 
 class _ClosedEyeMoveState extends State<ClosedEyeMove>
     with SingleTickerProviderStateMixin {
   int id;
-  _ClosedEyeMoveState({this.id});
+  String exName;
+  _ClosedEyeMoveState({this.id, this.exName});
 
+  AnimationController _controller;
+  bool _isPlaying = true;
   String link;
   String name;
   @override
@@ -28,10 +35,26 @@ class _ClosedEyeMoveState extends State<ClosedEyeMove>
 
     name = eyeExcerciesFiles[id - 1].title;
     link = eyeExcerciesFiles[id - 1].animation;
+    _controller = AnimationController(
+      vsync: this,
+      lowerBound: 0.3,
+      duration: Duration(seconds: 3),
+    )..repeat();
   }
 
   @override
   Widget build(BuildContext context) {
+    sendDataToServer() {
+      var userID = FirebaseAuth.instance.currentUser.uid;
+      FirebaseFirestore.instance.collection("EyeExercisePoint").doc().set({
+        "userID": userID,
+        "dateTime": DateTime.now(),
+        "exName": exName,
+        "xpPoint": 15,
+        "month": DateTime.now().month,
+      });
+    }
+
     var hw = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
@@ -95,6 +118,7 @@ class _ClosedEyeMoveState extends State<ClosedEyeMove>
                   // Function which will execute when the Countdown Ends
                   onComplete: () {
                     // Here, do whatever you want
+                    sendDataToServer();
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => GreatWork()));
                   },

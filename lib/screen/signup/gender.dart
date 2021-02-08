@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:eye_buddy/screen/signup/birthday.dart';
-import 'package:eye_buddy/util/colorconfig.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:eye_buddy/util/colorconfig.dart';
+import 'package:eye_buddy/screen/signup/birthday.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class GenderPage extends StatefulWidget {
   @override
@@ -168,15 +170,13 @@ class _GenderPageState extends State<GenderPage> {
             borderRadius: BorderRadius.circular(10),
           ),
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Birthday()));
-            // FirebaseFirestore.instance
-            //     .collection("UserInfo")
-            //     .doc(FirebaseAuth.instance.currentUser.uid)
-            //     .update({'userGender': genderValue}).then((value) {
-            //   Navigator.push(
-            //       context, MaterialPageRoute(builder: (context) => Birthday()));
-            // });
+            FirebaseFirestore.instance
+                .collection("UserInfo")
+                .doc(FirebaseAuth.instance.currentUser.uid)
+                .update({'userGender': genderValue}).then((value) {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Birthday()));
+            });
           },
           child: Text(
             'Done',

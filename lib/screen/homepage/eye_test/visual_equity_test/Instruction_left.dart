@@ -1,6 +1,5 @@
 import 'package:eye_buddy/screen/homepage/eye_test/AMD%20Test/amd_left.dart';
 import 'package:eye_buddy/screen/homepage/eye_test/Astigmatism/astigmatism_left.dart';
-import 'package:eye_buddy/screen/homepage/eye_test/Color%20Blind%20Test/color_blind.dart';
 import 'package:eye_buddy/screen/homepage/eye_test/Near%20Vision%20Test/nearvision.dart';
 import 'package:eye_buddy/screen/homepage/eye_test/light_sensitivity_test/left/light_sensitivity_left1.dart';
 import 'package:eye_buddy/screen/homepage/eye_test/visual_equity_test/left/visual_equity_test_left1.dart';
@@ -202,7 +201,7 @@ class _VisualEquityIntroLeftState extends State<VisualEquityIntroLeft> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    Colorblind1(
+                                                    LightSensitivityLeft1(
                                                       id: id,
                                                     )))
                                         : id == 6
