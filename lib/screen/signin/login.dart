@@ -72,6 +72,7 @@ class LoginScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: TextField(
+                      keyboardType: TextInputType.emailAddress,
                       autofocus: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -103,6 +104,7 @@ class LoginScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(5.0),
                     child: TextField(
                       autofocus: true,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0)),

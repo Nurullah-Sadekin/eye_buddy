@@ -23,10 +23,11 @@ class AnimationScreen extends StatelessWidget {
               ),
             ),
             Container(
+              width: hw,
               color: Colors.white70,
               padding: EdgeInsets.only(top: hp * 0.05, bottom: hp * 0.05),
               child: Center(
-                child: Image.asset('assets/gim.gif'),
+                child: SvgPicture.asset('assets/svg/eye.svg'),
               ),
             ),
             Container(
@@ -39,16 +40,6 @@ class AnimationScreen extends StatelessWidget {
                       fontSize: 30,
                       fontWeight: FontWeight.w600,
                       color: colorFromHex('#181D3D')),
-                ),
-              ),
-            ),
-            Container(
-              width: hw * 0.8,
-              child: Center(
-                child: Text(
-                  "There are many variations of passages of Lorem Ipsum available, but the majority",
-                  style: style(14, '#181D3D'),
-                  textAlign: TextAlign.center,
                 ),
               ),
             ),

@@ -13,53 +13,97 @@ class _Instruction1State extends State<Instruction1> {
   Widget build(BuildContext context) {
     var hp = MediaQuery.of(context).size.height;
     var hw = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
+    return Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  InkWell(
-                    child: Text(
-                      "Skip",
-                      style: TextStyle(
-                          color: colorFromHex('#181D3D'),
-                          fontFamily: 'TTCommons',
-                          fontSize: 16),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Instruction2()));
-                    },
-                  )
-                ],
-              ),
-              SizedBox(
-                height: hp * 0.15,
-              ),
-              Container(
-                  height: 150,
-                  width: 150,
-                  child: SvgPicture.asset('assets/svg/instruction 1.svg')),
-              SizedBox(
-                height: hp * 0.3,
-              ),
-              Text(
-                "Wash your hands",
-                style: TextStyle(
-                    color: colorFromHex('#181D3D'),
-                    fontFamily: 'TTCommons',
-                    fontSize: 26),
+              InkWell(
+                child: Text(
+                  "Skip",
+                  style: TextStyle(
+                      color: colorFromHex('#181D3D'),
+                      fontFamily: 'TTCommons',
+                      fontSize: 16),
+                ),
+                onTap: () {},
               )
             ],
           ),
-        ),
+          SizedBox(
+            height: hp * 0.15,
+          ),
+          Container(
+              height: 100,
+              width: 100,
+              child: SvgPicture.asset('assets/svg/instruction 1.svg')),
+          SizedBox(
+            height: hp * 0.3,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0, right: 10),
+            child: Text(
+              "Wash your hands",
+              style: TextStyle(
+                  color: colorFromHex('#181D3D'),
+                  fontFamily: 'TTCommons',
+                  fontSize: 26),
+            ),
+          )
+        ],
       ),
     );
   }
 }
+
+// import 'package:flutter/cupertino.dart';
+
+// Widget instruction1(context, hp) {
+//   return Padding(
+//     padding: EdgeInsets.all(20.0),
+//     child: Column(
+//       children: <Widget>[
+//         Row(
+//           mainAxisAlignment: MainAxisAlignment.end,
+//           children: <Widget>[
+//             InkWell(
+//               child: Text(
+//                 "Skip",
+//                 style: TextStyle(
+//                     color: colorFromHex('#181D3D'),
+//                     fontFamily: 'TTCommons',
+//                     fontSize: 16),
+//               ),
+//               onTap: () {
+//                 // Navigator.push(context,
+//                 //     MaterialPageRoute(builder: (context) => Instruction2()));
+//               },
+//             )
+//           ],
+//         ),
+//         SizedBox(
+//           height: hp * 0.15,
+//         ),
+//         Container(
+//             height: 100,
+//             width: 100,
+//             child: SvgPicture.asset('assets/svg/instruction 1.svg')),
+//         SizedBox(
+//           height: hp * 0.3,
+//         ),
+//         Padding(
+//           padding: const EdgeInsets.only(left: 10.0, right: 10),
+//           child: Text(
+//             "Wash your hands",
+//             style: TextStyle(
+//                 color: colorFromHex('#181D3D'),
+//                 fontFamily: 'TTCommons',
+//                 fontSize: 26),
+//           ),
+//         )
+//       ],
+//     ),
+//   );
+// }

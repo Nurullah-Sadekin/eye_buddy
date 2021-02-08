@@ -27,6 +27,9 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  
+  
+  image_picker: ^0.6.7+22
   lottie: ^0.7.0+1
   animated_splash_screen: ^1.0.1+2
   flutter_svg: ^0.18.0
@@ -35,9 +38,14 @@ dependencies:
   provider: ^4.0.4
   http: ^0.12.1
   json_annotation: ^1.0.0
-  cupertino_icons: ^1.0.0
+  fl_chart: ^0.12.2
+  circular_countdown_timer: ^0.0.4
   flutter_gifimage: ^1.0.1
   adobe_xd: ^1.0.0+1
+  cupertino_icons: ^1.0.0
+  charts_flutter: ^0.9.0
+  percent_indicator: ^2.1.7+2
+
 
 dev_dependencies:
   flutter_test:
@@ -58,13 +66,19 @@ flutter:
   assets:
     - assets/
     - assets/svg/
+    - assets/svg/eye_test/
+    - assets/svg/eye_test/arrow/
     - assets/images/
+    - assets/images/popup/
+    - assets/lottie/
     - assets/images/level_logo/
+    - assets/images/prad_story/
     - assets/icon/
     - assets/excercises/
     - fonts/
     - assets/json/
     - assets/svg/dry_eye/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

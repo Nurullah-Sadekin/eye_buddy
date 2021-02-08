@@ -32,12 +32,7 @@ class _Instruction4State extends State<Instruction4> {
                           fontFamily: 'TTCommons',
                           fontSize: 16),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Instruction5()));
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),
@@ -45,8 +40,8 @@ class _Instruction4State extends State<Instruction4> {
                 height: hp * 0.15,
               ),
               Container(
-                  height: 200,
-                  width: hw * 0.7,
+                  height: 100,
+                  width: 100,
                   child: SvgPicture.asset('assets/svg/instruction 3.svg')),
               SizedBox(
                 height: hp * 0.3,

@@ -1,3 +1,4 @@
+import 'package:eye_buddy/screen/homepage/profile.dart';
 import 'package:eye_buddy/screen/signin/login.dart';
 import 'package:flutter/material.dart';
 import 'package:eye_buddy/screen/signup/gender.dart';
@@ -182,7 +183,7 @@ class SignUp extends StatelessWidget {
                 ),
                 onPressed: () async {
                   await Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => GenderPage()));
+                      MaterialPageRoute(builder: (context) => Profile()));
                 },
                 child: Text(
                   'Registration',

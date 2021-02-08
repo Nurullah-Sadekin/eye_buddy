@@ -1,7 +1,9 @@
+import 'package:eye_buddy/screen/Buddy/buddy.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:eye_buddy/resultpage/good.dart';
 import 'package:flutter_svg/svg.dart';
+import '../prad_story/prad_story.dart';
 
 class Prad extends StatefulWidget {
   @override
@@ -42,8 +44,16 @@ class _PradState extends State<Prad> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Image.asset(
-                        "assets/images/right_arrow.png",
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PradStory()));
+                        },
+                        child: Image.asset(
+                          "assets/images/right_arrow.png",
+                        ),
                       ),
                     ],
                   ),
@@ -52,8 +62,14 @@ class _PradState extends State<Prad> {
                   ),
                   Row(
                     children: [
-                      Image.asset(
-                        "assets/images/left_arrow.png",
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Buddy()));
+                        },
+                        child: Image.asset(
+                          "assets/images/left_arrow.png",
+                        ),
                       ),
                     ],
                   ),

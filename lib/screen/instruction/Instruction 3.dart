@@ -31,12 +31,7 @@ class _Instruction3State extends State<Instruction3> {
                           fontFamily: 'TTCommons',
                           fontSize: 16),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Instruction4()));
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),
@@ -44,8 +39,8 @@ class _Instruction3State extends State<Instruction3> {
                 height: hp * 0.15,
               ),
               Container(
-                  height: 200,
-                  width: hw * 0.7,
+                  height: 100,
+                  width: 100,
                   child: SvgPicture.asset('assets/svg/instruction 3.svg')),
               SizedBox(
                 height: hp * 0.3,
@@ -66,26 +61,6 @@ class _Instruction3State extends State<Instruction3> {
           ),
         ),
       ),
-      floatingActionButton: Padding(
-        padding: EdgeInsets.only(bottom: 40),
-        child: MaterialButton(
-          height: 40,
-          minWidth: 220,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          onPressed: () {},
-          child: Text(
-            'Done',
-            style: TextStyle(
-                fontFamily: 'DemiBold',
-                color: colorFromHex('#181D3D'),
-                fontSize: 16),
-          ),
-          color: colorFromHex("#FEC62D"),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

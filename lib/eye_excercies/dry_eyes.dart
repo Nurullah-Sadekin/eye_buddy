@@ -3,6 +3,7 @@ import 'package:eye_buddy/eye_excercies/excercies_class/eye_excercies_item.dart'
 import 'package:eye_buddy/eye_excercies/dry_eyes/closed_eye_move.dart';
 
 class DryEyes extends StatelessWidget {
+  int id;
   @override
   Widget build(BuildContext context) {
     var hp = MediaQuery.of(context).size.height;
@@ -38,29 +39,45 @@ class DryEyes extends StatelessWidget {
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               children: <Widget>[
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ClosedEyeMove())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ClosedEyeMove(id: 40))),
                   child: closedEyeMove(hp, hw),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ClosedEyeMove())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ClosedEyeMove(id: 41))),
                   child: plaming(hp, hw),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ClosedEyeMove())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ClosedEyeMove(
+                                id: 39,
+                              ))),
                   child: closingTight(hp, hw),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ClosedEyeMove())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ClosedEyeMove(
+                                id: 37,
+                              ))),
                   child: blinking(hp, hw),
                 ),
                 InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ClosedEyeMove())),
-                  child: dryEye(hp, hw),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ClosedEyeMove(
+                                id: 44,
+                              ))),
+                  child: waveMove(hp, hw),
                 ),
               ],
             ),

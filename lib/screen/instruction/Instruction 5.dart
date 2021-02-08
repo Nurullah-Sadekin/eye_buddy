@@ -32,12 +32,7 @@ class _Instruction5State extends State<Instruction5> {
                           fontFamily: 'TTCommons',
                           fontSize: 16),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Instruction6()));
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),
@@ -45,8 +40,8 @@ class _Instruction5State extends State<Instruction5> {
                 height: hp * 0.15,
               ),
               Container(
-                  height: 200,
-                  width: hw * 0.7,
+                  height: 100,
+                  width: 100,
                   child: Center(
                     child: Text(
                       'x5',

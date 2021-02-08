@@ -31,12 +31,7 @@ class _Instruction7State extends State<Instruction7> {
                           fontFamily: 'TTCommons',
                           fontSize: 16),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Instruction8()));
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),

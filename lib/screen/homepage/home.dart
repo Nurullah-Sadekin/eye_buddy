@@ -1,7 +1,9 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:eye_buddy/screen/homepage/profile.dart';
+
+import 'package:eye_buddy/screen/signin/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:eye_buddy/screen/homepage/profile.dart';
 import 'package:eye_buddy/screen/homepage/share.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
 import 'discover.dart';
@@ -15,6 +17,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   // Properties & Variables needed
+  bool state = false;
 
   int selectedIndex = 0;
   int currentTab = 0; // to keep track of active tab index
@@ -22,8 +25,9 @@ class _HomeState extends State<Home> {
     Discover(),
     Train(),
     Prad(),
-    Share(),
+    Stats(),
     Profile()
+    // LoginScreen(),
   ];
 
   // to store nested tabs
@@ -77,7 +81,7 @@ class _HomeState extends State<Home> {
             ),
             TabItem(
                 icon: SvgPicture.asset('assets/icon/bar-chart.svg'),
-                title: 'Share'),
+                title: 'Stats'),
             TabItem(
                 icon: Image(
                   image: AssetImage('assets/icon/user.png'),

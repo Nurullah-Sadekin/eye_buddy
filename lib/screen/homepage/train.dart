@@ -1,3 +1,4 @@
+import 'package:eye_buddy/eye_excercies/custom_excercies.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
 import 'package:flutter/material.dart';
 
@@ -73,7 +74,12 @@ class _TrainState extends State<Train> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  onPressed: () async {},
+                  onPressed: () async {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CustomExcercies()));
+                  },
                   child: Text(
                     'Begin Training',
                     style: TextStyle(
