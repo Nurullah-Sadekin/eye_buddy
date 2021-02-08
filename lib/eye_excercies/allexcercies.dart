@@ -111,6 +111,16 @@ class _AllExcerciesState extends State<AllExcercies> {
                             ),
                           ),
                         ),
+                        // Padding(
+                        //   padding: const EdgeInsets.symmetric(horizontal: 12),
+                        //   child:
+                        //       Text('For Rent', style: TextStyle(fontSize: 18)),
+                        // ),
+                        // Padding(
+                        //   padding: const EdgeInsets.symmetric(horizontal: 12),
+                        //   child:
+                        //       Text('For Sale', style: TextStyle(fontSize: 18)),
+                        // ),
                       ],
                       onPressed: (int newIndex) {
                         setState(() {

@@ -32,172 +32,170 @@ class _SettingPageState extends State<SettingPage> {
               Navigator.pop(context);
             }),
       ),
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(25),
-            child: Column(
-              children: [
-                _tab(
-                  "Remind Morning Training",
-                  CupertinoSwitch(
-                    activeColor: ColorConfig.yeallow,
-                    trackColor: colorFromHex('#B7AE97'),
-                    value: _morning,
-                    onChanged: (value) {
-                      setState(() {
-                        _morning = value;
-                      });
-                    },
-                  ),
-                ),
-                Divider(
-                  thickness: 1,
-                  color: ColorConfig.yeallow,
-                  indent: 60,
-                ),
-                _tab(
-                  "Remind Evening Training",
-                  CupertinoSwitch(
-                    activeColor: ColorConfig.yeallow,
-                    trackColor: colorFromHex('#B7AE97'),
-                    value: _evening,
-                    onChanged: (value) {
-                      setState(() {
-                        _evening = value;
-                      });
-                    },
-                  ),
-                ),
-                Divider(
-                  thickness: 1,
-                  color: ColorConfig.yeallow,
-                  indent: 60,
-                ),
-                _tab(
-                  "Per Training Duration",
-                  Container(
-                    width: 50,
-                    height: 30,
-                    child: TextField(
-                      autofocus: false,
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        hintText: '0',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        contentPadding: EdgeInsets.all(5),
-                      ),
-                    ),
-                  ),
-                ),
-                Divider(
-                  thickness: 1,
-                  color: ColorConfig.yeallow,
-                  indent: 60,
-                ),
-                _tab(
-                    "Eye Test",
-                    GestureDetector(
-                      child: Icon(Icons.arrow_right),
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => EyeTest()));
-                      },
-                    )),
-                Divider(
-                  thickness: 1,
-                  color: ColorConfig.yeallow,
-                  indent: 60,
-                ),
-                // _tab("Profile",GestureDetector(child: ,
-                // onTap: (){},)),
-                _tab(
-                    "Stats",
-                    GestureDetector(
-                      child: Icon(Icons.arrow_right),
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Stats()));
-                      },
-                    )),
-                Divider(
-                  thickness: 1,
-                  color: ColorConfig.yeallow,
-                  indent: 60,
-                ),
-                _tab(
-                    "Help & Support",
-                    GestureDetector(
-                      child: Icon(Icons.arrow_right),
-                      onTap: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) => Stats()));
-                      },
-                    )),
-                Divider(
-                  thickness: 1,
-                  color: ColorConfig.yeallow,
-                  indent: 60,
-                ),
-                _tab(
-                    "Take Our Survey",
-                    GestureDetector(
-                      child: Icon(Icons.arrow_right),
-                      onTap: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) => Stats()));
-                      },
-                    )),
-                Divider(
-                  thickness: 1,
-                  color: ColorConfig.yeallow,
-                  indent: 60,
-                ),
-
-                _tab(
-                    "Log out",
-                    GestureDetector(
-                      child: Icon(Icons.arrow_right),
-                      onTap: () {
-                        FirebaseAuth.instance.signOut();
-                        FirebaseAuth.instance
-                            .authStateChanges()
-                            .listen((User user) {
-                          if (user == null) {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => Home()));
-                            //Navigator.pop(context);
-                            print('User is currently signed out!');
-                          } else {
-                            print('User is signed in!');
-                          }
-                        });
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) => Home()));
-                      },
-                    )),
-                Divider(
-                  thickness: 1,
-                  color: ColorConfig.yeallow,
-                  indent: 60,
-                ),
-
-                Padding(
-                  padding: EdgeInsets.all(50),
-                  child: Text(
-                    'Version 1.0.0',
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: ColorConfig.black,
-                        letterSpacing: 2.0),
-                  ),
-                ),
-              ],
+      body: Padding(
+        padding: const EdgeInsets.all(25),
+        child: Column(
+          children: [
+            _tab(
+              "Remind Morning Training",
+              CupertinoSwitch(
+                activeColor: ColorConfig.yeallow,
+                trackColor: colorFromHex('#B7AE97'),
+                value: _morning,
+                onChanged: (value) {
+                  setState(() {
+                    _morning = value;
+                  });
+                },
+              ),
             ),
-          ),
-        ],
+            Divider(
+              thickness: 1,
+              color: ColorConfig.yeallow,
+              indent: 60,
+            ),
+            _tab(
+              "Remind Evening Training",
+              CupertinoSwitch(
+                activeColor: ColorConfig.yeallow,
+                trackColor: colorFromHex('#B7AE97'),
+                value: _evening,
+                onChanged: (value) {
+                  setState(() {
+                    _evening = value;
+                  });
+                },
+              ),
+            ),
+            Divider(
+              thickness: 1,
+              color: ColorConfig.yeallow,
+              indent: 60,
+            ),
+            _tab(
+              "Per Training Duration",
+              Container(
+                width: 30,
+                height: 20,
+                child: TextField(
+                  autofocus: true,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    // contentPadding: EdgeInsets.all(5),
+                  ),
+                ),
+              ),
+            ),
+            _tab(
+                "Eye Test",
+                GestureDetector(
+                  child: Icon(Icons.arrow_right),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => EyeTest()));
+                  },
+                )),
+            Divider(
+              thickness: 1,
+              color: ColorConfig.yeallow,
+              indent: 60,
+            ),
+            // _tab("Profile",GestureDetector(child: ,
+            // onTap: (){},)),
+            _tab(
+                "Stats",
+                GestureDetector(
+                  child: Icon(Icons.arrow_right),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Stats()));
+                  },
+                )),
+            Divider(
+              thickness: 1,
+              color: ColorConfig.yeallow,
+              indent: 60,
+            ),
+            _tab(
+                "Help & Support",
+                GestureDetector(
+                  child: Icon(Icons.arrow_right),
+                  onTap: () {
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => Stats()));
+                  },
+                )),
+            Divider(
+              thickness: 1,
+              color: ColorConfig.yeallow,
+              indent: 60,
+            ),
+            _tab(
+                "Take Our Survey",
+                GestureDetector(
+                  child: Icon(Icons.arrow_right),
+                  onTap: () {
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => Stats()));
+                  },
+                )),
+            Divider(
+              thickness: 1,
+              color: ColorConfig.yeallow,
+              indent: 60,
+            ),
+            _tab(
+                "Set Training Hours",
+                GestureDetector(
+                  child: Icon(Icons.arrow_right),
+                  onTap: () {
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => Stats()));
+                  },
+                )),
+            Divider(
+              thickness: 1,
+              color: ColorConfig.yeallow,
+              indent: 60,
+            ),
+            _tab(
+                "Log out",
+                GestureDetector(
+                  child: Icon(Icons.arrow_right),
+                  onTap: () {
+                    FirebaseAuth.instance.signOut();
+                    FirebaseAuth.instance
+                        .authStateChanges()
+                        .listen((User user) {
+                      if (user == null) {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Home()));
+                        //Navigator.pop(context);
+                        print('User is currently signed out!');
+                      } else {
+                        print('User is signed in!');
+                      }
+                    });
+                  },
+                )),
+            Divider(
+              thickness: 1,
+              color: ColorConfig.yeallow,
+              indent: 60,
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(50),
+              child: Text(
+                'Version 1.0.0',
+                style: TextStyle(
+                    fontSize: 14, color: ColorConfig.black, letterSpacing: 2.0),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

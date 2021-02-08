@@ -10,7 +10,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'dart:async';
 import 'dart:math';
 import '../homepage/home.dart';
@@ -50,6 +49,11 @@ class _ProfileState extends State<Profile> {
   double octoberXP = 0.0;
   double novemberXP = 0.0;
   double decemberXP = 0.0;
+
+  List<Color> gradientColors = [
+    const Color(0xff23b6e6),
+    const Color(0xff02d39a),
+  ];
 
   LineChartData mainData() {
     return LineChartData(
@@ -120,28 +124,30 @@ class _ProfileState extends State<Profile> {
       lineBarsData: [
         LineChartBarData(
           spots: [
-            FlSpot(0, januaryXP / 1000),
-            FlSpot(1, februaryXP / 1000),
-            FlSpot(2, marchXP / 1000),
-            FlSpot(3, aprilXP / 1000),
-            FlSpot(4, mayXP / 1000),
-            FlSpot(5, juneXP / 1000),
-            FlSpot(6, julyXP / 1000),
-            FlSpot(7, augustXP / 1000),
-            FlSpot(8, septemberXP / 1000),
-            FlSpot(9, octoberXP / 1000),
-            FlSpot(10, novemberXP / 1000),
-            FlSpot(11, decemberXP / 1000),
+            FlSpot(0, januaryXP / 700),
+            FlSpot(1, februaryXP / 700),
+            FlSpot(2, marchXP / 700),
+            FlSpot(3, aprilXP / 700),
+            FlSpot(4, mayXP / 700),
+            FlSpot(5, juneXP / 700),
+            FlSpot(6, julyXP / 700),
+            FlSpot(7, augustXP / 700),
+            FlSpot(8, septemberXP / 700),
+            FlSpot(9, octoberXP / 700),
+            FlSpot(10, novemberXP / 700),
+            FlSpot(11, decemberXP / 700),
           ],
           isCurved: true,
-          colors: [ColorConfig.yeallow],
+          colors: gradientColors,
           barWidth: 3,
           isStrokeCapRound: true,
           dotData: FlDotData(
             show: false,
           ),
           belowBarData: BarAreaData(
-            show: false,
+            show: true,
+            colors:
+                gradientColors.map((color) => color.withOpacity(0.3)).toList(),
           ),
         ),
       ],
@@ -223,10 +229,10 @@ class _ProfileState extends State<Profile> {
 
           if (element.data()["month"] != null) {
             if (element.data()["month"] == 1) {
-              januaryXP = januaryXP + element.data()["xpPoint"];
+              this.januaryXP = this.januaryXP + element.data()["xpPoint"];
             }
             if (element.data()["month"] == 2) {
-              februaryXP = februaryXP + element.data()["xpPoint"];
+              this.februaryXP = this.februaryXP + element.data()["xpPoint"];
             }
             if (element.data()["month"] == 3) {
               marchXP = marchXP + element.data()["xpPoint"];
@@ -261,19 +267,19 @@ class _ProfileState extends State<Profile> {
           }
           totalXP = (totalXP + element.data()['xpPoint']);
         });
+
+        setState(() {});
         print(totalXP);
         print(februaryXP);
       });
 
-      setState(() {});
-      // return value;
+      //return value;
       // setState(() {
       //   this.userName = value.data()['userName'];
       // });
     });
   }
 
-///////////// Scafflod Option
   @override
   Widget build(BuildContext context) {
     var hp = MediaQuery.of(context).size.height;
@@ -386,21 +392,21 @@ class _ProfileState extends State<Profile> {
                             //   child: IconButton(
                             //       icon: Icon(Icons.settings),
                             //       onPressed: () {
-                            //   FirebaseAuth.instance.signOut();
-                            //   FirebaseAuth.instance
-                            //       .authStateChanges()
-                            //       .listen((User user) {
-                            //     if (user == null) {
-                            //       Navigator.of(context).push(
-                            //           MaterialPageRoute(
-                            //               builder: (context) => Home()));
-                            //       //Navigator.pop(context);
-                            //       print('User is currently signed out!');
-                            //     } else {
-                            //       print('User is signed in!');
-                            //     }
-                            //   });
-                            // }),
+                            //         FirebaseAuth.instance.signOut();
+                            //         FirebaseAuth.instance
+                            //             .authStateChanges()
+                            //             .listen((User user) {
+                            //           if (user == null) {
+                            //             Navigator.of(context).push(
+                            //                 MaterialPageRoute(
+                            //                     builder: (context) => Home()));
+                            //             //Navigator.pop(context);
+                            //             print('User is currently signed out!');
+                            //           } else {
+                            //             print('User is signed in!');
+                            //           }
+                            //         });
+                            //       }),
                             // ),
                           ],
                         ),
@@ -431,58 +437,9 @@ class _ProfileState extends State<Profile> {
                                 uname,
                                 style: TextStyle(fontSize: 22),
                               ),
-                              Padding(
-                                padding: EdgeInsets.all(2.0),
-                                child: LinearPercentIndicator(
-                                  width: 150.0,
-                                  animation: true,
-                                  animationDuration: 1000,
-                                  lineHeight: 10.0,
-                                  percent: totalXP <= 100
-                                      ? totalXP / 100
-                                      : totalXP <= 300 && totalXP > 100
-                                          ? totalXP / 300
-                                          : totalXP <= 4200 && totalXP > 300
-                                              ? totalXP / 4200
-                                              : totalXP <= 9000 &&
-                                                      totalXP > 4200
-                                                  ? totalXP / 9000
-                                                  : totalXP <= 17000 &&
-                                                          totalXP > 9000
-                                                      ? totalXP / 17000
-                                                      : totalXP <= 29000 &&
-                                                              totalXP > 17000
-                                                          ? totalXP / 29000
-                                                          : totalXP <= 36000 &&
-                                                                  totalXP >
-                                                                      29000
-                                                              ? totalXP / 36000
-                                                              : totalXP <=
-                                                                          40400 &&
-                                                                      totalXP >
-                                                                          36000
-                                                                  ? totalXP /
-                                                                      40400
-                                                                  : totalXP <=
-                                                                              54000 &&
-                                                                          totalXP >
-                                                                              40400
-                                                                      ? totalXP /
-                                                                          54000
-                                                                      : totalXP <= 69000 &&
-                                                                              totalXP >
-                                                                                  54000
-                                                                          ? totalXP /
-                                                                              69000
-                                                                          : totalXP <= 1000000 && totalXP > 69000
-                                                                              ? totalXP / 1000000
-                                                                              : 1000000,
-                                  linearStrokeCap: LinearStrokeCap.butt,
-                                  progressColor: ColorConfig.yeallow,
-                                ),
-                              ),
+                              SvgPicture.asset("assets/images/rp.svg"),
                             ],
-                          ),
+                          )
                         ],
                       ),
                     ),
@@ -516,24 +473,20 @@ class _ProfileState extends State<Profile> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              color: ColorConfig.yeallow,
-                                              // Color.fromRGBO(255, 0, 0, 0.0),
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              userEyeIssues[index],
-                                              style: TextStyle(
-                                                  color:
-                                                      _colorFromHex('#181D3D'),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: _colorFromHex('#FEC733'),
+                                            // Color.fromRGBO(255, 0, 0, 0.0),
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(15.0),
+                                          child: Text(
+                                            userEyeIssues[index],
+                                            style: TextStyle(
+                                                color: _colorFromHex('#181D3D'),
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold),
                                           ),
                                         ),
                                       ),

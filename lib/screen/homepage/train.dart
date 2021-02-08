@@ -1,4 +1,3 @@
-import 'package:eye_buddy/screen/homepage/begin_training.dart';
 import 'package:eye_buddy/util/colorconfig.dart';
 import 'package:flutter/material.dart';
 
@@ -8,21 +7,8 @@ class Train extends StatefulWidget {
 }
 
 class _TrainState extends State<Train> {
-  int count;
-  // ignore: missing_return
-  String greeting() {
-    var hour = DateTime.now().hour;
-    if (hour < 17) {
-      return 'Morning';
-    }
-    if (hour > 17) {
-      return 'Evening';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    var greet = greeting();
     var hp = MediaQuery.of(context).size.height;
     var hw = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -64,7 +50,7 @@ class _TrainState extends State<Train> {
                 Padding(
                   padding: EdgeInsets.only(top: hp * 0.06, bottom: hp * 0.05),
                   child: Text(
-                    '$greet Training',
+                    'Morning Training',
                     style: TextStyle(
                         fontFamily: 'DemiBold',
                         fontSize: 30,
@@ -87,15 +73,7 @@ class _TrainState extends State<Train> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  onPressed: () async {
-                    greet == 'Morning' ? count = 2 : count = 1;
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BeginTraining(
-                                  count: count,
-                                )));
-                  },
+                  onPressed: () async {},
                   child: Text(
                     'Begin Training',
                     style: TextStyle(

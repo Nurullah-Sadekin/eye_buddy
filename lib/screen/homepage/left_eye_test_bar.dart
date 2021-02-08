@@ -8,6 +8,11 @@ class LeftEyeTestBar extends StatefulWidget {
 }
 
 class _LeftEyeTestBarState extends State<LeftEyeTestBar> {
+  List<Color> gradientColors = [
+    const Color(0xff23b6e6),
+    const Color(0xff02d39a),
+  ];
+
   bool showAvg = false;
   String dropdownValue = 'Color Blind';
 
